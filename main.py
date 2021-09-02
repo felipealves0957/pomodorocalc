@@ -3,8 +3,15 @@ def minutes_to_hours(min):
     minutes = min - hours*60
     return (trunc(hours), trunc(minutes))
 
-def makelines(nlines):
+def make_lines(nlines):
     print('-'*nlines)
+
+def format_time(time):
+    if time < 10:
+        return str('0' + str(time))
+    else:
+        return time
+    
 
 from math import trunc
 hour = 0
@@ -21,7 +28,7 @@ minutes = start_time[3:]
 rest_total = ((total_minutes/pomodoro_time) - 1)*rest_time
 total_time = rest_total+total_minutes+int(minutes)
 
-makelines(30)
+make_lines(30)
 print(f'Horário inicial: {hour}:{minutes}')
-print(f'Horário final: {int(hour)+minutes_to_hours(total_time)[0]}:{minutes_to_hours(total_time)[1]}')
-makelines(30)
+print(f'Horário final: {format_time(int(hour)+minutes_to_hours(total_time)[0])}:{format_time(minutes_to_hours(total_time)[1])}')
+make_lines(30)
