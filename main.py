@@ -3,19 +3,32 @@ def minutes_to_hours(min):
     minutes = min - hours*60
     return (trunc(hours), trunc(minutes))
 
-def make_lines(nlines):
-    print('-'*nlines)
+def make_lines(nlines, mold):
+    print(f'{mold}'*nlines)
 
-def format_time(time):
+def format_time(time, ishour = False):
+    if ishour and time > 24:
+        t = time
+        time = t - trunc(t/24)*24
+
     if time < 10:
         return str('0' + str(time))
+
     else:
         return time
     
-
 from math import trunc
+from time import sleep
 hour = 0
 minutes = 0
+line_mold = '#'
+nlines = 60
+
+make_lines(nlines, line_mold)
+print('Olá...'.center(nlines))
+sleep(1.5)
+print('Seja bem-vindo(a) ao PomodoroPlanner'.center(nlines))
+make_lines(nlines, line_mold)
 
 start_time = str(input('Horário de início: '))
 pomodoro_time = int(input('Duração de cada pomodoro (minutos): '))
@@ -28,7 +41,10 @@ minutes = start_time[3:]
 rest_total = ((total_minutes/pomodoro_time) - 1)*rest_time
 total_time = rest_total+total_minutes+int(minutes)
 
-make_lines(30)
-print(f'Horário inicial: {hour}:{minutes}')
-print(f'Horário final: {format_time(int(hour)+minutes_to_hours(total_time)[0])}:{format_time(minutes_to_hours(total_time)[1])}')
-make_lines(30)
+final_hour = int(hour)+minutes_to_hours(total_time)[0]
+final_minutes = minutes_to_hours(total_time)[1]
+
+make_lines(nlines, line_mold)
+print(f'Horário inicial: {hour}:{minutes}'.center(nlines))
+print(f'Horário final: {format_time(final_hour, True)}:{format_time(final_minutes)}'.center(nlines))
+make_lines(nlines, line_mold)
