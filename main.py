@@ -18,7 +18,6 @@ rest_time = int(input('Tempo de descanso (minutos): '))
 hour = start_time[:2]
 minutes = start_time[3:]
 
-
 rest_total = ((total_minutes/pomodoro_time) - 1)*rest_time
 total_time = rest_total+total_minutes+int(minutes)
 
