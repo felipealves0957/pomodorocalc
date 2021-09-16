@@ -26,7 +26,7 @@ line_mold = '~'
 nlines = 60
 
 make_lines(line_mold, nlines)
-print('Seja bem-vindo(a) ao PomodoroPlanner'.center(nlines))
+print('Seja bem-vindo(a) ao PomodoroCalc'.center(nlines))
 make_lines(line_mold, nlines)
 
 start_time = str(input('Horário de início (hh:mm): '))
