@@ -6,7 +6,11 @@ O pomodorocalc visa resolver a tediosa tarefa de calcular o horário final de se
 
 ```
 git clone git@github.com:felipealves0957/pomodorocalc.git
+```
+```
 cd pomodorocalc
+```
+```
 python3 main.py
 ```
 
